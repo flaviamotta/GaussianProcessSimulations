@@ -35,9 +35,6 @@ def kernel(x, y, l2=0.1):
 n_samples = 10
 mx = np.random.normal(loc=0.0, scale=1.0, size=(N, n_samples))
 
-# plt.plot(mx)
-print(mx.shape)
-
 # calculating similarity matrix
 K = kernel(X_train, X_train, l2=0.01)
 L = np.linalg.cholesky(K + noise_var * np.eye(N))
