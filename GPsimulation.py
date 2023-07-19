@@ -21,6 +21,7 @@ y_test = np.cos(X_test)
 plt.plot(X_train, y_train, "x", label="Treino")
 plt.plot(X_test, y_test, "1", label="Teste")
 plt.legend()
+plt.show()
 
 noise_var = 1e-6
 N, n = len(X_train), len(X_test)
@@ -47,6 +48,7 @@ f_prior = np.dot(L, mx)
 # Figure 3
 plt.scatter(X_train[:, 0], y_train[:, 0], s=100, color="red")
 plt.plot(X_train[:, 0], f_prior, alpha=0.6)
+plt.show()
 
 # similarity matrices
 K = kernel(X_train, X_train, l2=0.1)
@@ -63,6 +65,7 @@ f_post = mu.reshape(-1, 1) + np.dot(L, np.random.normal(size=(n, n_samples)))
 # Figure 4
 plt.scatter(X_train[:, 0], y_train[:, 0], s=100, color="red")
 plt.plot(X_test, f_post, alpha=0.6)
+plt.show()
 
 
 # Function to make predictions
@@ -89,3 +92,4 @@ plt.plot(X_test.reshape(-1, 1)[:, 0], pred_[0][:, 0])
 plt.plot(X_test, y_test)
 plt.gca().fill_between(X_test, mu - 2 * stdv, mu + 2 * stdv, color="#dddddd")
 plt.scatter(X_train, y_train, color="red")
+plt.show()
